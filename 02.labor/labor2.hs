@@ -29,10 +29,10 @@ szjOsszeg n
     |div n 10 == 0 = mod n 10
     |otherwise= mod n 10 + szjOsszeg (div n 10)
 
-szjosszeg2 n res 
-    |n<0 = szjosszeg2 (abs n) res
+szjosszeg3 n res 
+    |n<0 = szjosszeg3 (abs n) res
     |n<10= res+n
-    |otherwise = szjosszeg2 (div n 10) (res + mod n 10)
+    |otherwise = szjosszeg3 (div n 10) (res + mod n 10)
 
 szjosszegls ls = map szjosszeg ls
 
@@ -60,13 +60,13 @@ fibon n  = fibo 0 1 0 n
 
 fibosg 0 1 0 n
     |fibosg__res 0 = res
-    |otherwise = fibosg a b res n1 = fibosg b res (b+res) (n1-1)
+    |otherwise = fibosg b res (b+res) (n1-1)
 
 fibosz n = map (fisg 0 1 0) [o..n]
 
 ls2 = [(577723707, 7),(0,1),(2847,9)]
 
-szamoszegls2 ls = map (uncurry szamjosszeg2) ls2
+szamoszegls2 ls = map (uncurry szamjosszegls2) ls2
 
 parosls ls = map paros ls
 
